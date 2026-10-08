@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+
+  --color-ink: #12110e;
+  --color-panel: #1c1a16;
+  --color-panel-2: #26231e;
+  --color-paper: #f4efe6;
+  --color-muted: #b7b0a4;
+  --color-faint: #8c867c;
+  --color-line: #3a352e;
+  --color-wood: #7d9a78;
+  --color-fire: #c45c4a;
+  --color-earth: #c4a15a;
+  --color-metal: #c5c6c1;
+  --color-water: #6d93ad;
+
+  --shadow-card: 0 0 0 1px rgba(244, 239, 230, 0.08);
+  --shadow-card-hover: 0 0 0 1px rgba(244, 239, 230, 0.16);
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--color-ink);
+    font-family: var(--font-sans);
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-earth);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: rgba(196, 161, 90, 0.35);
+    color: var(--color-paper);
+  }
+}
+
+.tabbar {
+  padding-bottom: calc(0.45rem + env(safe-area-inset-bottom, 0px));
+}
+
+.sheet-pad {
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+.safe-sheet {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
